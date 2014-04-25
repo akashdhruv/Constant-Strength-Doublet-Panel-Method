@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from math import *
+import time
 
 
 # Panel Method code for Constant Strength Doublet Method Using Dirichlet Boundary
@@ -124,6 +125,8 @@ def PHICD(mu,xc,yc,panel):
         
 ## Main Function 
 
+tic = time.clock()
+
 N=50 # Number of panels per surface
 c=1 # Chord length
 naca=[4,4,1,2] # Airfoil type (4-digit)
@@ -216,3 +219,6 @@ plt.show()
 
 print "Lift Coeffecient= ",Cl
 print "Number of body Panels= ",M-1
+
+toc = time.clock()
+print "Time elapsed= ",toc - tic
