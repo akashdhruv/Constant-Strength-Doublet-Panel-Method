@@ -129,7 +129,9 @@ tic = time.clock()
 
 N=50 # Number of panels per surface
 c=1 # Chord length
-naca=[4,4,1,2] # Airfoil type (4-digit)
+naca=[1.1398407488003082, 1.0801909611696667, 1.0, 0.071219861363520209]
+
+ # Airfoil type (4-digit)
 
 xp,yp=NACA(naca,c,N) # getting panel co-ordinates
 
@@ -158,7 +160,7 @@ plt.show()
 
 
 qinf=1.0 # freestream velocity
-alpha=0.0# angle of attack
+alpha=5.0# angle of attack
 
 fstream=freestream(qinf,alpha) # fstream object of class freestream
 
@@ -208,13 +210,18 @@ for i in range(M-1):
     
     
 # Plotting figures
-plt.figure()
+pxc=np.empty(M-1,dtype=float)
+pcp=np.empty(M-1,dtype=float)
 for i in range(M-1):
-    plt.scatter(panel[i].xc,panel[i].Cp)
+    pxc[i]=panel[i].xc
+    pcp[i]=panel[i].Cp
+plt.figure()
+plt.plot(pxc,pcp)
 plt.gca().invert_yaxis()
-plt.title('Coeffcient of Pressure Distribution over the surface')
+#plt.title('Coeffcient of Pressure Distribution over the surface')
 plt.xlabel('x')
 plt.ylabel("C_p")
+plt.xlim(0,1)
 plt.show()
 
 print "Lift Coeffecient= ",Cl
