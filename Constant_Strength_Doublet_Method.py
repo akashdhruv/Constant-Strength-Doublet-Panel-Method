@@ -129,9 +129,14 @@ tic = time.clock()
 
 N=50 # Number of panels per surface
 c=1 # Chord length
-naca=[1.1398407488003082, 1.0801909611696667, 1.0, 0.071219861363520209]
 
- # Airfoil type (4-digit)
+# Airfoil type (4-digit)
+
+# naca=[1.1398407488003082, 1.0801909611696667, 1.0, 0.071219861363520209]
+# naca=[0,0,1,2]
+# naca=[4,4,1,2]
+naca=[2,1,0,4]
+
 
 xp,yp=NACA(naca,c,N) # getting panel co-ordinates
 
